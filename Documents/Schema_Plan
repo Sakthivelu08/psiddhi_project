@@ -1,0 +1,58 @@
+Image Table
+
+Job ID
+Attachment ID - to get the full attachment details for the particular job
+Image ID
+Image Name - may be the file name can be fill it here
+Image Description - optional
+Image Data (For Binary Storage)
+Image Path (For Path Based Storage) I think this works better 
+Content Type
+Uploader's Id - Foreman Id or Reviewer Id
+Uploader's Role - Foreman/Reviewer
+Uploaded On
+Image Size - optional
+
+For Path Based Storage - Azure Blob storage - similar to s3 in aws
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+so normally, in big multi national websites with role based, how they are handling schemas for storing images, because, if I'm designing like this
+
+Image ID
+Image Name - may be the file name can be fill it here
+Image Description - optional
+Image Path (For Path Based Storage) I think this works better 
+Content Type
+Uploader's Id - Foreman Id or Reviewer Id
+Uploader's Role - Foreman/Reviewer
+Uploaded On
+Image Size - optional
+
+for ex, user will upload mulitple images on one go on the same time, will it create more records,
