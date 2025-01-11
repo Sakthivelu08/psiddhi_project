@@ -1,14 +1,27 @@
 import './App.css';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import MapRendering from './react-map';
+import AttachmentModule from './containers';
+import { ThemeProvider } from '@emotion/react';
+import { Suspense } from 'react';
+import AttachmentProvider from './containers/contexts/AttachmentContext';
+import theme from './theme';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<MapRendering />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Suspense>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <AttachmentProvider>
+                <AttachmentModule />
+              </AttachmentProvider>
+            }
+          />
+        </Routes>
+      </Suspense>
+    </ThemeProvider>
   );
 }
 
