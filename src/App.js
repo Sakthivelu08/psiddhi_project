@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-import MapRendering from './react-map/MapRendering';
+import MapRendering from './react-map';
 
 function App() {
   return (
