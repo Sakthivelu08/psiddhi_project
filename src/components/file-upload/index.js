@@ -11,17 +11,30 @@ function UploadFile() {
         setCurrentUploadedFiles
     } = useContext(AttachmentContext);
 
-    const onDrop = (files) => {
-        setUploadedFiles((prevFiles) => [...prevFiles, ...files]);
-        setCurrentUploadedFiles(files);
+    const handleFileRejection = fileRejections => {
+        // managing file rejections based on the file type.
+        // we can add snackbar msg saying invalid file type. files should be uploaded only with these (.txt, .jpg) kinda message.
+        // console.log("File rejection", fileRejections);
+    }
+
+    const onDrop = (acceptedFiles, fileRejections) => {
+        setUploadedFiles((prevFiles) => [...prevFiles, ...acceptedFiles]); // this is not needed as we will store these confirmed files in the blob.
+        setCurrentUploadedFiles(acceptedFiles);
+        if (fileRejections.length > 0) handleFileRejection(fileRejections);
     };
 
-    const { acceptedFiles, getRootProps, getInputProps, isDragActive, open } = useDropzone({
+    const { acceptedFiles, fileRejections, getRootProps, getInputProps, isDragActive, open } = useDropzone({
         onDrop: onDrop,
-        accept: ['.png', '.jpg', '.jpeg', '.zip'],
+        accept: {
+            "text/plain": [".txt"],
+            "application/pdf": [".pdf"],
+            "application/msword": [".doc"],
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"],
+            "image/*": [".png", ".jpg", ".jpeg"]
+        },
         multiple: true,
         noClick: true,
-        noKeyboard: true,
+        noKeyboard: true
         // onDropAccepted: (files) => {
         //     console.log(files);
         //     setUploadedFiles((prevFiles) => [...prevFiles, ...files]);

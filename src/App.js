@@ -5,6 +5,7 @@ import { ThemeProvider } from '@emotion/react';
 import { Suspense } from 'react';
 import AttachmentProvider from './containers/contexts/AttachmentContext';
 import theme from './theme';
+import { Typography } from '@mui/material';
 
 function App() {
   return (

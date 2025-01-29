@@ -1,0 +1,15 @@
+.mapbox-export-control select {
+    display: none !important;
+    /* Hide dropdowns */
+}
+
+.mapbox-export-control label {
+    display: none !important;
+    /* Hide labels */
+}
+
+/* .mapboxgl-ctrl-icon, */
+.mapboxgl-export-list label,
+.mapboxgl-export-list select {
+    display: none !important;
+}
